@@ -1,0 +1,44 @@
+1. SELECT * FROM customers;
+
+2. SELECT distinct Country FROM customers;
+
+3. SELECT * FROM customers WHERE customerID like "BL%";
+
+4. SELECT * FROM orders LIMIT 100;
+
+5. SELECT * FROM customers WHERE postalcode like "1010" or postalcode like "3012" or postalcode like "12209" or postalcode like "05023";
+
+6. SELECT * FROM orders where ShipRegion <> 'null';
+
+7. SELECT * FROM customers ORDER BY country, city;
+
+8. INSERT INTO customers(CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax, Image, ImageThumbnail)
+    values('gopro','DetroitProper','Ed De', 'Developer', '123 Woodward', 'Detroit', 'MW', '12345', 'Canada', '123-456-789', 'null', 'null', 'null');
+    
+9. SET SQL_SAFE_UPDATES = 0;
+UPDATE orders
+SET ShipRegion = 'EuroZone'
+WHERE ShipCountry = 'France'
+
+10.DELETE FROM `order details` WHERE Quantity = '1'; //Those are back quotes!
+
+11. SELECT avg(Quantity), max(Quantity), min(Quantity)
+FROM `order details`
+
+12. SELECT avg(Quantity), max(Quantity), min(Quantity)
+FROM `order details`
+group by OrderID
+
+13. SELECT CustomerID FROM orders where OrderID = '10290';
+
+14.  A. SELECT * FROM customers
+INNER JOIN orders ON customers.CustomerID = orders.CustomerID;
+B. SELECT * FROM customers
+LEFT JOIN orders ON customers.CustomerID = orders.CustomerID;
+C. SELECT * FROM customers
+RIGHT JOIN orders ON customers.CustomerID = orders.CustomerID;
+
+15. SELECT FirstName FROM employees WHERE ISNULL(ReportsTo);
+SELECT FirstName FROM employees WHERE ReportsTo IS NULL;
+
+16.SELECT FirstName FROM employees WHERE ReportsTo = '2';
